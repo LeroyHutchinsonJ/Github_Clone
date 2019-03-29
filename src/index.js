@@ -15,15 +15,19 @@ var FileList = ({ files }) => (
   <table className="file-list">
     <tbody>
       {files.map(file => (
-        <tr className="file-list-item" key={file.id}>
-          <td className="file-name">{file.name}</td>
-        </tr>
+        <FileListItem file={file} key={file.name} />
       ))}
     </tbody>
   </table>
 );
 
-FileList.PropTypes = {
+var FileListItem = ({ file }) => (
+  <tr className="fileListItem">
+    <td className="fileName">{file.name}</td>
+  </tr>
+);
+
+FileList.propTypes = {
   files: PropTypes.array
 };
 
