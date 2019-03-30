@@ -3,20 +3,20 @@ import ReactDOM from "react-dom";
 import "./styles.css";
 import PropTypes from "prop-types";
 
-var FileList = ({ files }) => (
+var FileList = ({ file }) => (
   <table className="fileList">
     <tbody>
-      {files.map(file => (
-        <FileListItem file={file} key={file.name} />
+      {file.map(fileObj => (
+        <FileListItem fileObj={fileObj} key={fileObj.name} />
       ))}
     </tbody>
   </table>
 );
 
-var FileListItem = ({ file }) => (
+var FileListItem = ({ fileObj }) => (
   <tr className="fileListItem">
     <td className="fileName">
-      <FileName file={file} />
+      <FileName fileObj={fileObj} />
     </td>
   </tr>
 );
@@ -50,9 +50,9 @@ const testFiles = [
   }
 ];
 
-var FileIcon = ({ file }) => {
+var FileIcon = ({ fileObj }) => {
   let icon = "fas fa-file";
-  if (file.type == "folder") {
+  if (fileObj.type == "folder") {
     icon = "fa-folder";
   }
   return (
@@ -65,17 +65,17 @@ FileIcon.propTypes = {
   file: PropTypes.object.isRequired
 };
 
-var FileName = ({ file }) => {
+var FileName = ({ fileObj }) => {
   return (
     <React.Fragment>
-      <FileIcon file={file} />
-      <td className="fileName">{file.name}</td>
+      <FileIcon fileObj={fileObj} />
+      <td className="fileName">{fileObj.name}</td>
     </React.Fragment>
   );
 };
 
 FileName.propTypes = {
-  file: PropTypes.object.isRequired
+  file: PropTypes.array.isRequired
 };
 const rootElement = document.getElementById("root");
-ReactDOM.render(<FileList files={testFiles} />, rootElement);
+ReactDOM.render(<FileList file={testFiles} />, rootElement);
