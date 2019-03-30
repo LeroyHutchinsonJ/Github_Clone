@@ -15,7 +15,9 @@ var FileList = ({ files }) => (
 
 var FileListItem = ({ file }) => (
   <tr className="fileListItem">
-    <td className="fileName">{file.name}</td>
+    <td className="fileName">
+      <FileName file={file} />
+    </td>
   </tr>
 );
 
@@ -48,5 +50,32 @@ const testFiles = [
   }
 ];
 
+var FileIcon = ({ file }) => {
+  let icon = "fa-file-text-o";
+  if (file.type == "folder") {
+    icon = "fa-folder";
+  }
+  return (
+    <td className="file-icon">
+      <i className={`fa ${icon}`} />
+    </td>
+  );
+};
+FileIcon.propTypes = {
+  file: PropTypes.object.isRequired
+};
+
+var FileName = ({ file }) => {
+  return (
+    <React.Fragment>
+      <FileIcon file={file} />
+      <td className="fileName">{file.name}</td>
+    </React.Fragment>
+  );
+};
+
+FileName.propTypes = {
+  file: PropTypes.object.isRequired
+};
 const rootElement = document.getElementById("root");
 ReactDOM.render(<FileList files={testFiles} />, rootElement);
