@@ -3,16 +3,8 @@ import ReactDOM from "react-dom";
 import "./styles.css";
 import PropTypes from "prop-types";
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
-    </div>
-  );
-}
 var FileList = ({ files }) => (
-  <table className="file-list">
+  <table className="fileList">
     <tbody>
       {files.map(file => (
         <FileListItem file={file} key={file.name} />
