@@ -28,7 +28,7 @@ FileList.propTypes = {
 const testFiles = [
   {
     id: 1,
-    name: "src",
+    name: "public",
     type: "folder",
     updatedAt: "2/27/19",
     latestCommit: { message: "Initial Commit" }
@@ -36,14 +36,14 @@ const testFiles = [
 
   {
     id: 2,
-    name: "tests",
+    name: "src",
     type: "folder",
     updatedAt: "2/27/19",
     latestCommit: { message: "Initial Commit" }
   },
   {
     id: 3,
-    name: "README",
+    name: "package.json",
     type: "file",
     updatedAt: "2/28/19",
     latestCommit: { message: "Added a readme" }
@@ -51,7 +51,7 @@ const testFiles = [
 ];
 
 var FileIcon = ({ file }) => {
-  let icon = "fa-file-text-o";
+  let icon = "fas fa-file";
   if (file.type == "folder") {
     icon = "fa-folder";
   }

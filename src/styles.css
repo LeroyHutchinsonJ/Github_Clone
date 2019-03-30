@@ -12,7 +12,7 @@
   position: absolute;
 }
 
-.fileList td {
+.fileList tr {
   border-top: 1px solid #ccc;
 }
 .fileName {
@@ -26,4 +26,7 @@
 }
 .fa-folder {
   color: #508fca;
+}
+.fa-file {
+  width: 16px;
 }
