@@ -17,6 +17,7 @@ var FileListItem = ({ fileObj }) => (
   <tr className="fileListItem">
     <td className="fileName">
       <FileName fileObj={fileObj} />
+      <CommitMessageComponent commit={fileObj.latestCommit} />
     </td>
   </tr>
 );
@@ -76,6 +77,14 @@ var FileName = ({ fileObj }) => {
 
 FileName.propTypes = {
   file: PropTypes.array.isRequired
+};
+
+var CommitMessageComponent = ({ commit }) => {
+  return <td className="commitMessage">{commit.message}</td>;
+};
+
+CommitMessageComponent.propTypes = {
+  commit: PropTypes.object.isRequired
 };
 const rootElement = document.getElementById("root");
 ReactDOM.render(<FileList file={testFiles} />, rootElement);

@@ -30,3 +30,9 @@
 .fa-file {
   width: 16px;
 }
+
+.commitMessage {
+  max-width: 442px;
+  padding-left: 10px;
+  overflow: hidden;
+}
