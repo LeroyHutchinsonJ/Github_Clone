@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./styles.css";
 import PropTypes from "prop-types";
+import Time from "./time";
 
 var FileList = ({ file }) => (
   <table className="fileList">
@@ -19,6 +20,9 @@ var FileListItem = ({ fileObj }) => (
       <FileName fileObj={fileObj} />
       <CommitMessageComponent commit={fileObj.latestCommit} />
     </td>
+    <td className="age">
+      <Time time={fileObj.updatedAt} />
+    </td>
   </tr>
 );
 
@@ -31,7 +35,7 @@ const testFiles = [
     id: 1,
     name: "public",
     type: "folder",
-    updatedAt: "2/27/19",
+    updatedAt: "1/21/19",
     latestCommit: { message: "Initial Commit" }
   },
 
@@ -39,14 +43,14 @@ const testFiles = [
     id: 2,
     name: "src",
     type: "folder",
-    updatedAt: "2/27/19",
+    updatedAt: "1/27/19",
     latestCommit: { message: "Initial Commit" }
   },
   {
     id: 3,
     name: "package.json",
     type: "file",
-    updatedAt: "2/28/19",
+    updatedAt: "1/28/19",
     latestCommit: { message: "Added a readme" }
   }
 ];
