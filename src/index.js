@@ -16,10 +16,8 @@ var FileList = ({ file }) => (
 
 var FileListItem = ({ fileObj }) => (
   <tr className="fileListItem">
-    <td className="fileName">
-      <FileName fileObj={fileObj} />
-      <CommitMessageComponent commit={fileObj.latestCommit} />
-    </td>
+    <FileName fileObj={fileObj} />
+    <CommitMessageComponent commit={fileObj.latestCommit} />
     <td className="age">
       <Time time={fileObj.updatedAt} />
     </td>
