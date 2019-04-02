@@ -16,9 +16,15 @@ var FileList = ({ file }) => (
 
 var FileListItem = ({ fileObj }) => (
   <tr className="fileListItem">
-    <FileName fileObj={fileObj} />
-    <CommitMessageComponent commit={fileObj.latestCommit} />
+    <td>
+      <FileName fileObj={fileObj} />{" "}
+    </td>
+    <td>
+      {" "}
+      <CommitMessageComponent commit={fileObj.latestCommit} />
+    </td>
     <td className="age">
+      {" "}
       <Time time={fileObj.updatedAt} />
     </td>
   </tr>
@@ -59,9 +65,9 @@ var FileIcon = ({ fileObj }) => {
     icon = "fa-folder";
   }
   return (
-    <td className="file-icon">
+    <>
       <i className={`fa ${icon}`} />
-    </td>
+    </>
   );
 };
 FileIcon.propTypes = {
@@ -71,8 +77,10 @@ FileIcon.propTypes = {
 var FileName = ({ fileObj }) => {
   return (
     <React.Fragment>
-      <FileIcon fileObj={fileObj} />
-      <td className="fileName">{fileObj.name}</td>
+      <span className="fileIcon">
+        <FileIcon fileObj={fileObj} />
+      </span>
+      <span className="fileName">{fileObj.name}</span>
     </React.Fragment>
   );
 };
@@ -82,7 +90,7 @@ FileName.propTypes = {
 };
 
 var CommitMessageComponent = ({ commit }) => {
-  return <td className="commitMessage">{commit.message}</td>;
+  return <span className="commitMessage">{commit.message}</span>;
 };
 
 CommitMessageComponent.propTypes = {
